@@ -1,4 +1,64 @@
-[ -r /etc/env ] && . /etc/env
+# ~/.bashrc
 
-alias to="sudo to"
-alias dots='/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+[ -r /etc/profile ] && . /etc/profile
+
+# Aliases
+alias 0='sudo '
+alias to='0 to'
+alias su='0 su'
+alias v='$EDITOR'
+alias ff='fastfetch'
+alias ip='ip -c'
+alias lsblk='lsblk -o NAME,PARTUUID,LABEL,TYPE,SIZE,MOUNTPOINTS'
+alias ansistrip="sed 's,\x1b\[[0-9;]*m,,g'"
+alias dots='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+
+# Functions
+frm() {
+    pushd "${1:-.}" >/dev/null
+    fzf -m | while IFS= read -r f; do
+        rm -vf -- "$f"
+    done
+    popd >/dev/null
+}
+
+# Conditional environments
+if command -v direnv &>/dev/null; then
+    eval "$(direnv hook bash)"
+fi
+
+if command -v nvim &>/dev/null; then
+    export EDITOR='nvim'
+    export MANPAGER='nvim +Man!'
+fi
+
+if command -v eza &>/dev/null; then
+    alias ls='eza --icons=always --color=always --group-directories-first -F=always --header --smart-group --mounts -o --git --no-quotes'
+    alias l='ls -al'
+    alias lt='ls -T'
+fi
+
+# Set up XDG variables
+export XDG_MUSIC_DIR=$HOME/music
+export XDG_PICTURES_DIR=$HOME/pics
+export XDG_VIDEOS_DIR=$HOME/vids
+export XDG_DOCUMENTS_DIR=$HOME/docs
+export XDG_DOWNLOAD_DIR=$HOME/dls
+export XDG_DESKTOP_DIR=/tmp/_desktop
+
+# Misc variables
+export TZ="America/Chicago"
+
+# Prompt
+NORMAL="\[\e[0m\]"
+BOLD="\[\e[1m\]"
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+
+if [ $EUID -eq 0 ]; then
+    PS1="$BOLD$RED [ $NORMAL\w$BOLD$RED ] > $NORMAL"
+else
+    PS1="$BOLD$GREEN [ $NORMAL\w$BOLD$GREEN ] > $NORMAL"
+fi
+
+unset NORMAL BOLD RED GREEN

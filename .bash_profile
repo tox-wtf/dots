@@ -1,3 +1,5 @@
+# ~/.bash_profile
+
 [ -r ~/.bashrc ] && . ~/.bashrc
 
 # start a graphical session on login
