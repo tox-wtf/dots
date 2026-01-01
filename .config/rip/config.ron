@@ -1,0 +1,110 @@
+(
+    // the default log level; one of trace, debug, info, warn, error, or off
+    log_level: "debug",
+
+    // explicit music output; has sane fallbacks
+    // out: "/home/t/music",
+
+    // defaults to $EDITOR
+    // editor: "vim",
+
+    // format to use in the editor and when serializing/deserializing
+    // WARNING: Subject to deprecation
+    preferred_serde_format: ron,
+
+    // strings on which to split artists when scraping
+    artist_split_strings: [
+        // WARNING: Order matters
+        ", & ",
+        ", and",
+        ", ",
+        " & ",
+        " and ",
+        " + ",
+        " x ",
+        " / ",
+    ],
+
+    // artists not to split using above split characters
+    artist_split_exceptions: [
+        // ampersands
+        "Simon & Garfunkel",
+        "Daryl Hall & John Oates",
+        "Sly & The Family Stone",
+        "Lil Jon & The East Side Boyz",
+        "piri & tommy",
+        "Above & Beyond",
+
+        // commas
+        "Tyler, The Creator",
+        "Muira,",
+        "your friend, james",
+
+        // ands
+        "Fitz and the Tantrums",
+        "Me and My Kidney",
+        "The Virus and Antidote",
+        "LSD and the Search for God",
+        "Sidewalks and Skeletons",
+
+        // slashes (not homoglyph slashes)
+        "黒魔 / Chroma",
+        "イア / ia",
+        "AC/DC", // won't split because we match ' / ', but doesn't hurt
+    ],
+
+    // NOTE: By default, regexes are case-insensitive. To enable case
+    // sensitivity, prepend "(?-i)".
+    sed: (
+        artists: [
+            // handles
+            ( r"\(@.+\)", "" ), // remove '(@handle)' (useful for soundcloud)
+
+            // formatting
+            ( r"J\.I\.D", "JID" ),
+            ( r"SNOT", "$$NOT" ), // to escape '$', use '$$'
+            ( r"Shinonome Interface", "Shinonome I/F" ),
+            ( r"Purity Filter", "purity://filter" ),
+            ( r"Koraii", "KORAII" ),
+            ( r"2HOLLIS", "2hollis" ),
+            ( r"femtanyl", "Femtanyl" ),
+            ( r"nedaj", "Nedaj" ),
+            ( r"Meganeko", "meganeko" ),
+            ( r"piri", "piri & tommy" ),
+            ( r"かめりあ\(Camellia\)", "Camellia" ),
+            ( r"黒魔 \/ Chroma", "Chroma" ),
+            ( r"イア \/ ia", "ia" ),
+            ( r"(BattousaiX|BATTOUSAI)", "BATTOUSAIX" ),
+
+            // names
+            ( r"Chase Weaver", "hooligan chase" ),
+            ( r"Gabriel O'Leary", "gabby start" ),
+            ( r"Marie Ulven Ringheim", "girl in red" ),
+            ( r"Shermar Cuba Paul", "Night Lovell" ),
+            ( r"Tommy Villiers", "piri & tommy" ),
+            ( r"Aristos Petrou", "" ),              // $uicideboy$
+            ( r"Scott Arceneaux Jr\.", "" ),        // $uicideboy$
+            ( r"Михайлина Полина Леонидовна", "" ), // билборды
+            ( r"Горин Александр Сергеевич", "" ),   // билборды
+            ( r"Климанов Виктор Алексеевич", "" ),  // билборды
+        ],
+        title: [
+            ( r" \(demo\)$", "" ),
+            ( r" \(intro\)$", "" ),
+            ( r" \(interlude\)$", "" ),
+            ( r" [\(\[]?prod\.? .+$", "" ),
+            ( r" \(bonus.+$", "" ),
+            ( r" \(original mix.+$", "" ),
+            ( r" (\[|\(| - )single.+$", "" ),
+            ( r"Bonus Track: ", "" ),
+            ( r"S\d+ E\d+ ", ""),
+
+            // temporary
+            ( r".+/ ", ""),
+        ],
+        album: [
+            ( r" \(deluxe\)$", "" ),
+            ( r"^\[FAM\d+\] ", "" ), // fallen metropolis albums
+        ],
+    ),
+)

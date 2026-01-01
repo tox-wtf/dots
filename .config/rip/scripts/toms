@@ -1,0 +1,14 @@
+#!/usr/bin/bash
+
+to_ms() {
+    local t="$1"
+    local mm=${t%%:*}
+    local rest=${t#*:}
+    local ss=${rest%.*}
+    local ms=${rest#*.}
+    printf '%d\n' $(( mm*60000 + ss*1000 + ms ))
+}
+
+while IFS= read -r line; do
+    to_ms "$line"
+done
