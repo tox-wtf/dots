@@ -2,3 +2,9 @@
 cp -vf chrome/userC*.css ~/.firefox/*/chrome/
 xdg-open "$(<color)"
 ```
+
+```
+curl -fsSL https://github.com/catppuccin/userstyles/releases/download/all-userstyles-export/import.json |
+    sed 's,https://userstyles.catppuccin.com/lib/lib.less,https://raw.githubusercontent.com/tox-wtf/dots/refs/heads/master/.config/.firefox/userstyles.less,g' |
+    tee userstyles.json
+```
