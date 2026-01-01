@@ -1,41 +1,41 @@
 # alacritty/colors.toml
-# THEME: Sienna
+# THEME: Sunset
 
 # Primary colors
 [colors.primary]
-background = "#24272f"
-foreground = "#f6e5dd"
-dim_foreground = "#e6d5cd"
-bright_foreground = "#fff5fd"
+background = "#17161A"
+foreground = "#eeeefe"
+dim_foreground = "#dedeee"
+bright_foreground = "#fefeff"
 
 # Cursor colors
 [colors.cursor]
 text = "#000000"
-cursor = "#f2a978"
+cursor = "#eeeefe"
 
 # Normal colors
 [colors.normal]
-black = "#3c474d"
-red = "#ca7b7b"
-green = "#dcb092"
-yellow = "#979590"
-blue = "#97adc2"
-magenta = "#b08bd3"
-cyan = "#f2a978"
-white = "#e5e5e5"
+black = "#333339"
+red = "#E0ABBE"
+green = "#EBB894"
+yellow = "#FAF9D2"
+blue = "#B2C0EB"
+magenta = "#E2B2EB"
+cyan = "#9E82C4"
+white = "#dddded"
 
 # Bright colors
 [colors.bright]
-black = "#3c474d"
-red = "#ca7b7b"
-green = "#dcb092"
-yellow = "#979590"
-blue = "#97adc2"
-magenta = "#b08bd3"
-cyan = "#f2a978"
-white = "#e5e5e5"
+black = "#333339"
+red = "#E0ABBE"
+green = "#EBB894"
+yellow = "#FAF9D2"
+blue = "#B2C0EB"
+magenta = "#E2B2EB"
+cyan = "#9E82C4"
+white = "#dddded"
 
 # Selection colors
 [colors.selection]
 text = "#000000"
-background = "#f2a978"
+background = "#eeeefe"
