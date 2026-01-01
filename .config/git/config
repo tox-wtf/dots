@@ -1,0 +1,97 @@
+# ~/.config/git/config
+[user]
+    name = tox
+    email = tox@tox.wtf
+    # signingkey = TODO: <-
+
+[core]
+    compression = 9
+    whitespace = error
+    preloadindex = true
+
+[http]
+    lowSpeedLimit = 1
+
+[advice]
+    statusHints = false
+
+# Clone shortcuts
+# git clone tox@vat
+[url "git@github.com:tox-wtf/"]
+    insteadOf = "tox@"
+
+# git clone gh@glfs-book/lfs-themes
+[url "git@github.com:"]
+    insteadOf = "gh@"
+
+# git clone gh:glfs-book/lfs-themes
+[url "https://github.com/"]
+    insteadOf = "gh:"
+
+[url "https://gitlab.com/"]
+    insteadOf = "gl:"
+
+[url "https://codeberg.org/"]
+    insteadOf = "cb:"
+
+[url "https://git.gay/"]
+    insteadOf = "dotgay:"
+
+[init]
+    defaultBranch = "master"
+
+[status]
+    branch = true
+    showStash = true
+    ; showUntrackedFiles = all
+
+[log]
+    abbrevCommit = true
+    graphColors = blue,yellow,cyan,magenta,green,red
+
+[color "decorate"]
+    HEAD = red
+    branch = blue
+    tag = yellow
+    remoteBranch = magenta
+
+[pager]
+    branch = false
+    tag = false
+
+# show more recent branches
+[branch]
+    sort = -committerdate
+
+# show more recent tags
+[tag]
+    sort = -taggerdate
+
+[color "branch"]
+    current     = magenta
+    local       = default
+    remote      = yellow
+    upstream    = green
+    plain       = blue
+
+[diff]
+    context = 3
+    renames = copies
+    interHunkContext = 10
+
+[interactive]
+    singlekey = true # no need to press enter
+
+[commit]
+    verbose = true # show changes in commit template
+    # gpgSign = true
+
+[push]
+    followTags = true # push tags
+
+[pull]
+    rebase = true
+
+[rebase]
+    autoStash = true
+    missingCommitsCheck = warn
