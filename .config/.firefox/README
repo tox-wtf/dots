@@ -1,0 +1,4 @@
+```bash
+cp -vf chrome/userC*.css ~/.firefox/*/chrome/
+xdg-open "$(<color)"
+```

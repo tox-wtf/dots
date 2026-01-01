@@ -1,0 +1,47 @@
+/* delete useless ui elements */
+#tracking-protection-icon,
+#shield-icon,
+#identity-box,
+#urlbar-icons,
+.urlbar-icon {
+  position: absolute !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border: none !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(100%) !important;
+  display: none !important;
+}
+
+#urlbar {
+  justify-content: center !important;
+  gap: 0 !important;
+}
+
+#urlbar-input {
+  text-align: center !important;
+  width: 100% !important;
+  margin: 0 !important;
+  flex: 1 !important;
+}
+
+:root{
+--focus-outline-color: transparent !important;
+--chrome-content-separator-color: transparent !important;
+}
+
+#sidebar-header {
+  background: #17161A !important;
+}
+
+#sidebar-splitter {
+  width: 0px !important;
+  border: 1px #EBB894 important;
+}
+
+.titlebar-close {
+  display:none !important;
+}
