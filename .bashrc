@@ -5,13 +5,26 @@
 # Aliases
 alias 0='sudo '
 alias to='0 to'
+alias s='0 s'
 alias su='0 su'
 alias v='$EDITOR'
 alias ff='fastfetch'
+alias jq='jq --indent 4'
 alias ip='ip -c'
 alias lsblk='lsblk -o NAME,PARTUUID,LABEL,TYPE,SIZE,MOUNTPOINTS'
 alias ansistrip="sed 's,\x1b\[[0-9;]*m,,g'"
 alias dots='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
+
+## git
+alias gs='git status --short'
+alias gl='git log --all --graph --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n"'
+alias gc='git commit'
+alias gco='git checkout'
+alias gg='git push'
+alias gp='git pull'
+alias ga='git add'
+alias gap='git add -p'
+alias gd='git diff'
 
 # Functions
 frm() {
@@ -20,6 +33,21 @@ frm() {
         rm -vf -- "$f"
     done
     popd >/dev/null
+}
+
+t() {
+    session="${1:-def}"
+    tmux attach -t "$session" || tmux new -s "$session"
+}
+
+manwtf() {
+    local tmpfile=$(mktemp -u)
+    curl -fsSL "man.tox.wtf/$1" -o $tmpfile
+    man $tmpfile
+}
+
+mkcd() {
+    mkdir -p "${1:?}" && cd "$1"
 }
 
 # Conditional environments
