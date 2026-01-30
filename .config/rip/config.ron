@@ -1,16 +1,12 @@
 (
     // the default log level; one of trace, debug, info, warn, error, or off
-    log_level: "debug",
+    log_level: "trace",
 
     // explicit music output; has sane fallbacks
     // out: "/home/t/music",
 
     // defaults to $EDITOR
     // editor: "vim",
-
-    // format to use in the editor and when serializing/deserializing
-    // WARNING: Subject to deprecation
-    preferred_serde_format: ron,
 
     // strings on which to split artists when scraping
     artist_split_strings: [
@@ -32,6 +28,7 @@
         "Daryl Hall & John Oates",
         "Sly & The Family Stone",
         "Lil Jon & The East Side Boyz",
+        "Joey Valence & Brae",
         "piri & tommy",
         "Above & Beyond",
 
@@ -39,6 +36,7 @@
         "Tyler, The Creator",
         "Muira,",
         "your friend, james",
+        "Hey, ily!",
 
         // ands
         "Fitz and the Tantrums",
@@ -53,12 +51,19 @@
         "AC/DC", // won't split because we match ' / ', but doesn't hurt
     ],
 
+    image: (
+        artist_pfp_size: 256,
+        cover_art_size: 512,
+        format: Png,
+    ),
+
     // NOTE: By default, regexes are case-insensitive. To enable case
     // sensitivity, prepend "(?-i)".
     sed: (
         artists: [
             // handles
             ( r"\(@.+\)", "" ), // remove '(@handle)' (useful for soundcloud)
+            ( r"prod\. .+", "" ), // remove prod tags
 
             // formatting
             ( r"J\.I\.D", "JID" ),
@@ -66,6 +71,7 @@
             ( r"Shinonome Interface", "Shinonome I/F" ),
             ( r"Purity Filter", "purity://filter" ),
             ( r"Koraii", "KORAII" ),
+            ( r"Toby Fox", "toby fox" ),
             ( r"2HOLLIS", "2hollis" ),
             ( r"femtanyl", "Femtanyl" ),
             ( r"nedaj", "Nedaj" ),
@@ -75,6 +81,11 @@
             ( r"黒魔 \/ Chroma", "Chroma" ),
             ( r"イア \/ ia", "ia" ),
             ( r"(BattousaiX|BATTOUSAI)", "BATTOUSAIX" ),
+            ( r"WARGASM (UK)", "WARGASM" ),
+            ( r"alice gas", "ALICE GAS" ),
+            ( r"lil eli", "LIL ELI" ),
+            ( r"Fibre", "FIBRE" ),
+            ( r"Blockerstein", "Blookerstein" ),
 
             // names
             ( r"Chase Weaver", "hooligan chase" ),
