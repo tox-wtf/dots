@@ -16,13 +16,9 @@
     statusHints = false
 
 # Clone shortcuts
-# git clone tox@vat
+# git clone tox:vat
 [url "git@github.com:tox-wtf/"]
-    insteadOf = "tox@"
-
-# git clone gh@glfs-book/lfs-themes
-[url "git@github.com:"]
-    insteadOf = "gh@"
+    insteadOf = "tox:"
 
 # git clone gh:glfs-book/lfs-themes
 [url "https://github.com/"]
