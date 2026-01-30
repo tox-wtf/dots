@@ -12,6 +12,11 @@
 import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml"]
 live_config_reload = true
 
+[keyboard]
+bindings = [
+    { key = "Space", mods = "Control|Shift", action = "ReceiveChar" },
+]
+
 [cursor]
 blink_interval = 500
 unfocused_hollow = false
