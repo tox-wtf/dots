@@ -67,6 +67,7 @@
 
             // formatting
             ( r"J\.I\.D", "JID" ),
+            ( r"xxtarlit", "Xxtarlit⚸" ),
             ( r"SNOT", "$$NOT" ), // to escape '$', use '$$'
             ( r"Shinonome Interface", "Shinonome I/F" ),
             ( r"Purity Filter", "purity://filter" ),
@@ -78,6 +79,7 @@
             ( r"Meganeko", "meganeko" ),
             ( r"piri", "piri & tommy" ),
             ( r"かめりあ\(Camellia\)", "Camellia" ),
+            ( r"かめりあ", "Camellia"),
             ( r"黒魔 \/ Chroma", "Chroma" ),
             ( r"イア \/ ia", "ia" ),
             ( r"(BattousaiX|BATTOUSAI)", "BATTOUSAIX" ),
@@ -86,6 +88,7 @@
             ( r"lil eli", "LIL ELI" ),
             ( r"Fibre", "FIBRE" ),
             ( r"Blockerstein", "Blookerstein" ),
+            ( r"kid hnrk", "hnrk" ),
 
             // names
             ( r"Chase Weaver", "hooligan chase" ),
@@ -93,6 +96,7 @@
             ( r"Marie Ulven Ringheim", "girl in red" ),
             ( r"Shermar Cuba Paul", "Night Lovell" ),
             ( r"Tommy Villiers", "piri & tommy" ),
+            ( r"Niko Saarinen", "Emray" ),
             ( r"Aristos Petrou", "" ),              // $uicideboy$
             ( r"Scott Arceneaux Jr\.", "" ),        // $uicideboy$
             ( r"Михайлина Полина Леонидовна", "" ), // билборды
