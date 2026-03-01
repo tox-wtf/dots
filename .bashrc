@@ -44,6 +44,7 @@ manwtf() {
     local tmpfile=$(mktemp -u)
     curl -fsSL "man.tox.wtf/$1" -o $tmpfile
     man $tmpfile
+    rm -f "$tmpfile"
 }
 
 mkcd() {
