@@ -37,6 +37,7 @@ frm() {
 
 t() {
     session="${1:-def}"
+    cd "${2:-.}"
     tmux attach -t "$session" || tmux new -s "$session"
 }
 
