@@ -26,11 +26,6 @@ set recolor-keephue             true
 set recolor-lightcolor          rgba(36,39,47,1)
 set recolor-darkcolor           rgba(246,229,221,1)
 
-set index-fg                    rgba(246,229,221,1)
-set index-bg                    rgba(36,39,47,1)
-set index-active-fg             rgba(246,229,221,1)
-set index-active-bg             rgba(49,50,68,1)
-
 set render-loading-bg           rgba(36,39,47,1)
 set render-loading-fg           rgba(246,229,221,1)
 
