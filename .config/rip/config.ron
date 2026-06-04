@@ -3,7 +3,7 @@
     log_level: "trace",
 
     // explicit music output; has sane fallbacks
-    // out: "/home/t/music",
+    out: "/home/t/snd",
 
     // defaults to $EDITOR
     // editor: "vim",
@@ -48,7 +48,7 @@
         // slashes (not homoglyph slashes)
         "黒魔 / Chroma",
         "イア / ia",
-        "AC/DC", // won't split because we match ' / ', but doesn't hurt
+        "AC/DC", // won't split because rip matches ' / ', but doesn't hurt
     ],
 
     image: (
@@ -66,6 +66,7 @@
             ( r"prod\. .+", "" ), // remove prod tags
 
             // formatting
+            ( r"Starjunk95 スタージャンク95", "Starjunk 95" ),
             ( r"J\.I\.D", "JID" ),
             ( r"xxtarlit", "Xxtarlit⚸" ),
             ( r"SNOT", "$$NOT" ), // to escape '$', use '$$'
@@ -89,8 +90,15 @@
             ( r"Fibre", "FIBRE" ),
             ( r"Blockerstein", "Blookerstein" ),
             ( r"kid hnrk", "hnrk" ),
+            ( r"Seyoungdagoat", "seyoungdagoat" ),
+            ( r"Angelus", "angelus" ),
+            ( r"blksmiith", "BLKSMIITH" ),
+            ( r"Che", "che" ),
+            ( r"jpegmafia", "JPEGMAFIA" ),
+            ( r"dltzk", "Jane Remover" ),
 
             // names
+            ( r"France Jobin", "I8U" ),
             ( r"Chase Weaver", "hooligan chase" ),
             ( r"Gabriel O'Leary", "gabby start" ),
             ( r"Marie Ulven Ringheim", "girl in red" ),
@@ -102,6 +110,10 @@
             ( r"Михайлина Полина Леонидовна", "" ), // билборды
             ( r"Горин Александр Сергеевич", "" ),   // билборды
             ( r"Климанов Виктор Алексеевич", "" ),  // билборды
+            ( r"John Charles Nickelsberg", "Sylendanna" ),
+
+            // orgs
+            ( r"SVPACYBERIA", "" ),
         ],
         title: [
             ( r" \(demo\)$", "" ),
@@ -113,11 +125,14 @@
             ( r" (\[|\(| - )single.+$", "" ),
             ( r"Bonus Track: ", "" ),
             ( r"S\d+ E\d+ ", ""),
+            ( r" [original]", ""),
 
             // temporary
-            ( r".+/ ", ""),
         ],
         album: [
+            // prod tags
+            ( r"prod\. .+", "" ),
+
             ( r" \(deluxe\)$", "" ),
             ( r"^\[FAM\d+\] ", "" ), // fallen metropolis albums
         ],
