@@ -85,10 +85,9 @@ BOLD="\[\e[1m\]"
 RED="\[\e[31m\]"
 GREEN="\[\e[32m\]"
 
-if [ $EUID -eq 0 ]; then
-    PS1="$BOLD$RED [ $NORMAL\w$BOLD$RED ] > $NORMAL"
-else
-    PS1="$BOLD$GREEN [ $NORMAL\w$BOLD$GREEN ] > $NORMAL"
-fi
+case $EUID in
+    0) PS1="$BOLD$RED [ $NORMAL\w$BOLD$RED ] > $NORMAL"     ;;
+    *) PS1="$BOLD$GREEN [ $NORMAL\w$BOLD$GREEN ] > $NORMAL" ;;
+esac
 
 unset NORMAL BOLD RED GREEN
