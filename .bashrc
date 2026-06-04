@@ -1,6 +1,6 @@
 # ~/.bashrc
 
-[ -r /etc/profile ] && . /etc/profile
+[[ -r /etc/profile ]] && . /etc/profile
 
 # Aliases
 alias 0='sudo '
@@ -13,7 +13,6 @@ alias jq='jq --indent 4'
 alias ip='ip -c'
 alias lsblk='lsblk -o NAME,PARTUUID,LABEL,TYPE,SIZE,MOUNTPOINTS'
 alias ansistrip="sed 's,\x1b\[[0-9;]*m,,g'"
-alias dots='git --git-dir=$HOME/.dots/ --work-tree=$HOME'
 
 ## git
 alias gs='git status --short'
@@ -29,18 +28,16 @@ alias gb='git branch -v'
 alias gr='git remote -v'
 
 # Functions
+dots() {
+    git --git-dir="$HOME/.dots" --work-tree="$HOME" "$@"
+}
+
 frm() {
     pushd "${1:-.}" >/dev/null
     fzf -m | while IFS= read -r f; do
         rm -vf -- "$f"
     done
     popd >/dev/null
-}
-
-t() {
-    session="${1:-def}"
-    cd "${2:-.}"
-    tmux attach -t "$session" || tmux new -s "$session"
 }
 
 manwtf() {
@@ -52,6 +49,12 @@ manwtf() {
 
 mkcd() {
     mkdir -p "${1:?}" && cd "$1"
+}
+
+t() {
+    session="${1:-def}"
+    cd "${2:-.}"
+    tmux attach -t "$session" || tmux new -s "$session"
 }
 
 # Conditional environments
