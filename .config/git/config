@@ -71,6 +71,8 @@
     plain       = blue
 
 [diff]
+    algorithm = histogram
+    colorMoved = zebra
     context = 3
     renames = copies
     interHunkContext = 10
