@@ -25,6 +25,8 @@ alias gp='git pull'
 alias ga='git add'
 alias gap='git add -p'
 alias gd='git diff'
+alias gb='git branch -v'
+alias gr='git remote -v'
 
 # Functions
 frm() {
