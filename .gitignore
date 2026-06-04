@@ -1,6 +1,20 @@
-.config/vesktop
-.config/unity3d
-.config/.firefox/userstyles.json
+.config/**
+
+!.config/.firefox
+!.config/alacritty
+!.config/btop
+!.config/git
+!.config/hypr
+!.config/mpv
+!.config/rip
+!.config/zathura
+!.config/mimeapps.list
+
+vids/**
+!vids/wp
+
+pics/**
+!pics/wp
 
 .*history
 .cache
@@ -8,22 +22,20 @@
 .firefox
 .floorp
 .gnupg
+.ljh
 .local
 .mono
 .mozilla
 .pki
 .pw
+.renpy
 .ssh
 .steam*
-
-vids/**
-!vids/wp
-pics/**
-!pics/wp
 
 music
 dls
 docs
+snd
 src
 
 Downloads
