@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-wallpaper_directory="$HOME/pics/wp"
+wallpaper_directory="$HOME/img/wp"
 tempfile=$(mktemp)
 
 fd -tf --base-directory "$wallpaper_directory" | shuf | fzm > $tempfile
