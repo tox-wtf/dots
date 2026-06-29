@@ -2,6 +2,7 @@
 [user]
     name = tox
     email = tox@tox.wtf
+    signingkey = ~/.ssh/keys/sign.pub
     # signingkey = TODO: <-
 
 [core]
@@ -82,7 +83,10 @@
 
 [commit]
     verbose = true # show changes in commit template
-    # gpgSign = true
+    gpgSign = true
+
+[gpg]
+    format = ssh
 
 [push]
     followTags = true # push tags
