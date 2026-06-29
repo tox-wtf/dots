@@ -3,7 +3,7 @@
     log_level: "trace",
 
     // explicit music output; has sane fallbacks
-    out: "/home/t/snd",
+    out: "/home/tox/mus",
 
     // defaults to $EDITOR
     // editor: "vim",
@@ -96,6 +96,8 @@
             ( r"Che", "che" ),
             ( r"jpegmafia", "JPEGMAFIA" ),
             ( r"dltzk", "Jane Remover" ),
+            ( r"tictactø", "tictacto" ),
+            ( r"millexica", "lexycat" ),
 
             // names
             ( r"France Jobin", "I8U" ),
@@ -125,7 +127,7 @@
             ( r" (\[|\(| - )single.+$", "" ),
             ( r"Bonus Track: ", "" ),
             ( r"S\d+ E\d+ ", ""),
-            ( r" [original]", ""),
+            ( r" \[original\]", ""),
 
             // temporary
         ],
