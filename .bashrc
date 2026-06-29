@@ -17,7 +17,7 @@ alias ansistrip="sed 's,\x1b\[[0-9;]*m,,g'"
 ## git
 alias gs='git status --short'
 alias gl='git log --all --graph --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n"'
-alias gc='git commit'
+alias gc='git commit -s'
 alias gco='git checkout'
 alias gg='git push'
 alias gp='git pull'
@@ -74,15 +74,20 @@ if command -v eza &>/dev/null; then
 fi
 
 # Set up XDG variables
-export XDG_MUSIC_DIR=$HOME/music
-export XDG_PICTURES_DIR=$HOME/pics
-export XDG_VIDEOS_DIR=$HOME/vids
-export XDG_DOCUMENTS_DIR=$HOME/docs
-export XDG_DOWNLOAD_DIR=$HOME/dls
+export XDG_MUSIC_DIR=$HOME/mus
+export XDG_PICTURES_DIR=$HOME/img
+export XDG_VIDEOS_DIR=$HOME/vid
+export XDG_DOCUMENTS_DIR=$HOME/doc
+export XDG_DOWNLOAD_DIR=$HOME/net
 export XDG_DESKTOP_DIR=/tmp/_desktop
 
 # Misc variables
 export TZ="America/Chicago"
+export PATH="$HOME/.local/bin:$PATH"
+export HISTSIZE=10000
+export HISTIGNORE="&:[bf]g:exit"
+
+export LFS="/mnt/lfs"
 
 # Prompt
 NORMAL="\[\e[0m\]"
@@ -94,5 +99,8 @@ case $EUID in
     0) PS1="$BOLD$RED [ $NORMAL\w$BOLD$RED ] > $NORMAL"     ;;
     *) PS1="$BOLD$GREEN [ $NORMAL\w$BOLD$GREEN ] > $NORMAL" ;;
 esac
+
+# Shell integration for fzf
+command -v fzf &>/dev/null && eval "$(fzf --bash)"
 
 unset NORMAL BOLD RED GREEN
