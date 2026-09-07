@@ -4,10 +4,8 @@
 
 # Aliases
 alias 0='sudo '
-alias to='0 to'
-alias s='0 s'
 alias su='0 su'
-alias v='$EDITOR'
+alias v='nvim'
 alias ff='fastfetch'
 alias jq='jq --indent 4'
 alias ip='ip -c'
@@ -19,6 +17,7 @@ alias gs='git status --short'
 alias gl='git log --all --graph --pretty=format:"%C(magenta)%h %C(white) %an  %ar%C(auto)  %D%n%s%n"'
 alias gc='git commit -s'
 alias gco='git checkout'
+alias gcp='git cherry-pick'
 alias gg='git push'
 alias gp='git pull'
 alias ga='git add'
@@ -54,7 +53,7 @@ mkcd() {
 t() {
     session="${1:-def}"
     cd "${2:-.}"
-    tmux attach -t "$session" || tmux new -s "$session"
+    tmux -u attach -t "$session" || tmux -u new -s "$session"
 }
 
 # Conditional environments
@@ -63,7 +62,7 @@ if command -v direnv &>/dev/null; then
 fi
 
 if command -v nvim &>/dev/null; then
-    export EDITOR='nvim'
+    export EDITOR=nvim
     export MANPAGER='nvim +Man!'
 fi
 
