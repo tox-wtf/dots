@@ -10,6 +10,7 @@
 
 [general]
 import = ["~/.config/alacritty/colors.toml", "~/.config/alacritty/fonts.toml"]
+working_directory = "None"
 live_config_reload = true
 
 [keyboard]
@@ -27,9 +28,11 @@ blinking = "On"
 shape = "Block"
 
 [selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 save_to_clipboard = false
 
 [env]
+TERM = "xterm-256color"
 WINIT_X11_SCALE_FACTOR = "1.0"
 
 [window]
