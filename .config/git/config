@@ -3,7 +3,6 @@
     name = tox
     email = tox@tox.wtf
     signingkey = ~/.ssh/keys/sign.pub
-    # signingkey = TODO: <-
 
 [core]
     compression = 9
